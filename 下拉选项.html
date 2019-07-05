@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>下拉菜单</title>
+	<style type="text/css">
+		*{margin: 0;padding:0;}
+		body{font:12px/1.5 Tahoma;}
+		#container{width: 200px;margin: 0 auto;padding: 1px;border: 1px solid #444444;margin-top: 10px;}
+		#container p{height: 30px;line-height: 30px;background: #DDD; padding-left: 10px;cursor: pointer;}
+		#container p i.bot{display: inline-block;height: 0;width: 0;border-right: 5px solid transparent; border-top: 6px solid #444;border-left: 5px solid transparent; font-style: normal;float: right;margin: 10px 10px 0 0 ;}
+		#container ul{list-style: none;background: #F5F5F5;}
+		#container ul li{height: 25px;line-height: 25px; padding-left: 10px;cursor: pointer;}
+		#container ul li a{text-decoration: none;color: black;}
+		#container ul li:hover{text-decoration: underline; background: white;}
+	</style>
+
+	<script type="text/javascript">
+		window.onload = function(){
+			var i = document.getElementsByClassName("bot")[0];
+			var ul = document.getElementById("container").getElementsByTagName("ul")[0];
+			var p = document.getElementById("container").getElementsByTagName("p")[0];
+			p.onclick = function(){
+				if(ul.style.display != "none"){
+					ul.style.display = "none";
+					i.style.borderTop = "0px solid transparent";
+					i.style.borderBottom = "6px solid #444";
+				}else{
+					ul.style.display = "block";
+					i.style.borderTop = "6px solid #444";
+					i.style.borderBottom = "";
+
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+<div id="container">
+	<p>播放列表...<i class="bot"></i></p>
+	<ul>
+		<li><a href="javascript:;">玩家之徒-蔡依林</a></li>		
+		<li><a href="javascript:;">原谅我就是这样的女生</a></li>
+		<li><a href="javascript:;">猜不透-丁当</a></li>
+		<li><a href="javascript:;">自导自演-周杰伦</a></li>
+		<li><a href="javascript:;">浪漫窝-弦子</a></li>
+		<li><a href="javascript:;">流年-王菲</a></li>		
+	</ul>
+</div>
+</body>
+</html>
