@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>和县掌上游</title>
+	<style type="text/css">
+		
+		*{margin: 0; padding: 0; } body{position: relative; } img.bg-img{width: 100%; height: 100%; } #logo{position: absolute; width: 60%; height: 10%; left: 20%; top: 7%; } #logo img.logo-img{width: 100%; height: 100%; } #btn {position: absolute; width: 60%; height: 10%; left: 20%; bottom: 17%; } #btn img.btn-img{width: 100%; height: 100%; cursor: pointer; } #wx{z-index: 9999; height: 100%; width: 100%; position: absolute; background: white; } #wx img.zhezhao1 {display: block; margin : 0 auto; width: 80%; height: 25%; } #wx img.zhezhao2{display: block; margin: 0 auto; width: 5rem; height: 5rem; margin-top: 5%; } 
+	</style>
+	<script type="text/javascript">
+		window.onload = function(){
+			var btn = document.getElementById("btn").getElementsByTagName("a")[0];
+			var weixin = document.getElementById("wx");
+
+			var browser_type = navigator.userAgent;
+			var isWeiXin = browser_type.indexOf("micromessenger") > -1;
+
+			if(isWeiXin){      //在微信内打开
+				return;
+			}else{
+				weixin.style.display = "none";
+				var isAndroid = browser_type.indexOf("Android") > -1;
+				if(isAndroid){     //在Android浏览器中打开
+					btn.href = "https://www.baidu.com/";
+				}else{				//在iso中打开
+					btn.href = "https://m.jd.com/";
+					return;
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="wx">
+	<img src="material/zhezhao1.jpg" class="zhezhao1" alt=""  />
+	<img src="material/zhezhao2.png" class="zhezhao2" alt="" />
+	</div>
+	<div>
+		<img src="material/bg.jpg" alt="" class="bg-img" /> <!--<img src="bg.jpg" alt="" class="logo"> -->
+		<div id="logo">
+			<img src="material/logo.png" alt="kong" class="logo-img" />
+		</div>
+		<div id="btn">
+			<a href="javascript:;"><img src="material/btn.png" class="btn-img"></a>
+		</div>
+	</div>
+	
+</body>
+</html>
