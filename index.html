@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>daboluo</title>
+	<meta http-equiv="Cache-Control" content="no-cache">
+	<meta http-equiv="Expires" content="0">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimum-scale=1.0,maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<meta name="format-detection" content="telephone=no, email=no" />
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript">
+		window.onload = function(){
+			var btn = document.getElementById("btn");
+			btn.onmousedown = function(){img.src="image/download2.png"};
+			btn.onmouseout = function(){img.src = "image/download1.png"};
+			var address= document.getElementById("btn").getElementsByTagName("a")[0];
+			var weixin = document.getElementById("wx");
+			var browser_type = navigator.userAgent.toLowerCase();
+			var isWeiXin = browser_type.indexOf("micromessenger") > -1;
+			if(isWeiXin){
+				btn.onclick = function(){			 //在微信内打开
+				weixin.style.display = "block"; 
+				};    
+			}else{
+				weixin.style.display = "none";
+				var isAndroid = browser_type.indexOf("android") > -1;
+				var img = document.getElementsByClassName("btn-img")[0];
+
+				
+				if(isAndroid){     //在Android浏览器中打开
+					address.href = "javascript:;";
+				}else{				//在iso中打开
+					address.href = "javasript:;";
+					return;
+				}
+			}
+		};
+	</script>
+</head>
+<body>
+	<div id="wx">
+	<img src="image/open01.jpg" class="zhezhao1" alt=""  />
+	</div>
+	
+		<img src="image/bg.jpg" alt="" class="bg-img" /> 
+		<div id="btn">
+			<a href="javascript:;"><img src="image/download1.png" class="btn-img" alt=""></a>
+		</div>
+	
+	
+</body>
+</html>
